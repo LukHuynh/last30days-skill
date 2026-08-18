@@ -23,3 +23,13 @@ bash skills/last30days/scripts/sync.sh
 ## Beta channel
 
 Experimental changes get tested on `mvanhorn/last30days-skill-private`, which installs as a parallel `/last30days-beta` slash command. Beta-only changes never ship to public without a review PR here. Workflow guide lives at `BETA.md` in the private repo. Plan that established this setup: `docs/plans/2026-04-17-005-feat-beta-skill-from-private-repo-plan.md`.
+
+## Auto-merge (ON — decided 2026-08-19)
+
+Full rule: `~/.claude/CLAUDE.md` § Auto-merge — repo cá nhân. Repo-specific parts only here.
+
+- **Gate first, merge second.** This repo has GitHub Actions; use GitHub's auto-merge so the PR
+  lands only when CI is green. Never merge straight after opening the PR.
+- **Method: `merge` commit.** No squash.
+- **Stop for human review** if the PR touches `hooks/`, `.github/workflows/`,
+  `skills/last30days/scripts/`, or any credential/config file holding API keys.
